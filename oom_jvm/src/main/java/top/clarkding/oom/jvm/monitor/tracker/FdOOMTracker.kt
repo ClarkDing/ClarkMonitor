@@ -16,12 +16,12 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.tracker
+package top.clarkding.oom.jvm.monitor.tracker
 
 import android.os.Build
 import android.system.Os
 import com.kwai.koom.base.MonitorLog
-import com.kwai.koom.javaoom.monitor.OOMFileManager
+import top.clarkding.oom.jvm.monitor.OOMFileManager
 import java.io.File
 
 class FdOOMTracker : OOMTracker() {

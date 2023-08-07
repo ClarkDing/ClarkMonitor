@@ -16,13 +16,13 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Handler
-import com.kwai.koom.base.loop.LoopThread
+import top.clarkding.oom.base.loop.LoopThread
 import java.io.File
 import java.util.concurrent.ExecutorService
 

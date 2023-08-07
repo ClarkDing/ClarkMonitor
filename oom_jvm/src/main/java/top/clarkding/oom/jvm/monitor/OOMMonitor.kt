@@ -16,9 +16,8 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor
+package top.clarkding.oom.jvm.monitor
 
-import android.os.Build
 import android.os.SystemClock
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -27,13 +26,13 @@ import com.kwai.koom.base.*
 import com.kwai.koom.base.MonitorManager.getApplication
 import com.kwai.koom.base.loop.LoopMonitor
 import com.kwai.koom.fastdump.ForkJvmHeapDumper
-import com.kwai.koom.javaoom.monitor.OOMFileManager.hprofAnalysisDir
-import com.kwai.koom.javaoom.monitor.OOMFileManager.manualDumpDir
-import com.kwai.koom.javaoom.monitor.analysis.AnalysisExtraData
-import com.kwai.koom.javaoom.monitor.analysis.AnalysisReceiver
-import com.kwai.koom.javaoom.monitor.analysis.HeapAnalysisService
-import com.kwai.koom.javaoom.monitor.tracker.*
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo
+import top.clarkding.oom.jvm.monitor.OOMFileManager.hprofAnalysisDir
+import top.clarkding.oom.jvm.monitor.OOMFileManager.manualDumpDir
+import top.clarkding.oom.jvm.monitor.analysis.AnalysisExtraData
+import top.clarkding.oom.jvm.monitor.analysis.AnalysisReceiver
+import top.clarkding.oom.jvm.monitor.analysis.HeapAnalysisService
+import top.clarkding.oom.jvm.monitor.tracker.*
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo
 import java.io.File
 import java.util.*
 

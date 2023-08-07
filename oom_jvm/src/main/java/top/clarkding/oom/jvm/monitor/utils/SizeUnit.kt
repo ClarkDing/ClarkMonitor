@@ -16,7 +16,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.utils
+package top.clarkding.oom.jvm.monitor.utils
 
 sealed class SizeUnit {
   abstract fun toByte(value: Long): Float

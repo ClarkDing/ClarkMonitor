@@ -18,7 +18,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.analysis
+package top.clarkding.oom.jvm.monitor.analysis
 
 import android.app.IntentService
 
@@ -40,15 +40,15 @@ import com.google.gson.Gson
 
 import com.kwai.koom.base.MonitorLog
 
-import com.kwai.koom.javaoom.monitor.OOMFileManager
-import com.kwai.koom.javaoom.monitor.OOMFileManager.createDumpFile
-import com.kwai.koom.javaoom.monitor.OOMFileManager.fdDumpDir
-import com.kwai.koom.javaoom.monitor.OOMFileManager.threadDumpDir
-import com.kwai.koom.javaoom.monitor.utils.SizeUnit.BYTE
-import com.kwai.koom.javaoom.monitor.utils.SizeUnit.KB
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo.javaHeap
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo.memInfo
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo.procStatus
+import top.clarkding.oom.jvm.monitor.OOMFileManager
+import top.clarkding.oom.jvm.monitor.OOMFileManager.createDumpFile
+import top.clarkding.oom.jvm.monitor.OOMFileManager.fdDumpDir
+import top.clarkding.oom.jvm.monitor.OOMFileManager.threadDumpDir
+import top.clarkding.oom.jvm.monitor.utils.SizeUnit.BYTE
+import top.clarkding.oom.jvm.monitor.utils.SizeUnit.KB
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.javaHeap
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.memInfo
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.procStatus
 
 import kshark.AndroidReferenceMatchers
 import kshark.HeapAnalyzer

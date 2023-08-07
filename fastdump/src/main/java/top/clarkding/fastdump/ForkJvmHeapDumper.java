@@ -18,19 +18,16 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.fastdump;
+package top.clarkding.fastdump;
 
-import static com.kwai.koom.base.Monitor_ApplicationKt.sdkVersionMatch;
-import static com.kwai.koom.base.Monitor_SoKt.loadSoQuietly;
+import static top.clarkding.oom.base.Monitor_ApplicationKt.sdkVersionMatch;
+import static top.clarkding.oom.base.Monitor_SoKt.loadSoQuietly;
+
+import android.os.Debug;
 
 import java.io.IOException;
 
-import android.os.Build;
-import android.os.Debug;
-
-import com.kwai.koom.base.MonitorBuildConfig;
-import com.kwai.koom.base.MonitorLog;
-import com.kwai.koom.base.MonitorManager;
+import top.clarkding.oom.base.MonitorLog;
 
 public class ForkJvmHeapDumper implements HeapDumper {
   private static final String TAG = "OOMMonitor_ForkJvmHeapDumper";
@@ -41,7 +38,7 @@ public class ForkJvmHeapDumper implements HeapDumper {
   }
 
   public static ForkJvmHeapDumper getInstance() {
-    return ForkJvmHeapDumper.Holder.INSTANCE;
+    return Holder.INSTANCE;
   }
 
   private ForkJvmHeapDumper() {}
@@ -50,7 +47,7 @@ public class ForkJvmHeapDumper implements HeapDumper {
     if (mLoadSuccess) {
       return;
     }
-    if (loadSoQuietly("koom-fast-dump")) {
+    if (loadSoQuietly("fast_dump")) {
       mLoadSuccess = true;
       nativeInit();
     }

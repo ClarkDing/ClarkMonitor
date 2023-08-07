@@ -1,7 +1,7 @@
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 
-set(TARGET kwai-android-base)
+set(TARGET monitor_base)
 project(${TARGET})
 
 # Sets the minimum version of CMake required to build the native library.
@@ -44,9 +44,9 @@ set(LOG_SOURCES liblog/event_tag_map.cpp liblog/log_event_list.cpp liblog/log_ev
         liblog/logger_read.cpp liblog/logger_write.cpp liblog/logprint.cpp liblog/pmsg_reader.cpp
         liblog/pmsg_writer.cpp liblog/properties.cpp)
 
-set(KWAI_LINKER_SOURCES kwai_linker/kwai_dlfcn.cpp kwai_linker/elf_reader.cpp)
+set(LINKER_SOURCES clark_linker/dlfcn.cpp clark_linker/elf_reader.cpp)
 
-set(KWAI_UTIL_SOURCES kwai_util/ktime.cpp)
+set(UTIL_SOURCES clark_util/ktime.cpp)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -66,8 +66,8 @@ add_library( # Sets the name of the library.
         ${LZMA_SOURCES}
         ${BIONIC_SOURCES}
         ${LOG_SOURCES}
-        ${KWAI_LINKER_SOURCES}
-        ${KWAI_UTIL_SOURCES}
+        ${LINKER_SOURCES}
+        ${UTIL_SOURCES}
         )
 
 # Searches for a specified prebuilt library and stores the path as a

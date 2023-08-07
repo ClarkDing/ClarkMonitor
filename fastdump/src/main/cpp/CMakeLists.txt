@@ -1,7 +1,7 @@
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 
-set(TARGET koom-fast-dump)
+set(TARGET fast_dump)
 project(${TARGET})
 
 # Sets the minimum version of CMake required to build the native library.
@@ -10,16 +10,16 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_compile_options(-Wall -Wextra -Werror -Wno-unused-command-line-argument -Oz)
 
-set(KWAI_ANDROID_BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../koom-common/kwai-android-base)
+set(ANDROID_BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../base)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include/
-        ${KWAI_ANDROID_BASE_DIR}/src/main/cpp/include/
-        ${KWAI_ANDROID_BASE_DIR}/src/main/cpp/liblog/include/
+        ${ANDROID_BASE_DIR}/src/main/cpp/include/
+        ${ANDROID_BASE_DIR}/src/main/cpp/liblog/include/
 )
 
 link_directories(
-        ${KWAI_ANDROID_BASE_DIR}/src/main/libs/${ANDROID_ABI}/
+        ${ANDROID_BASE_DIR}/src/main/libs/${ANDROID_ABI}/
 )
 
 # Creates and names a library, sets it as either STATIC
@@ -55,7 +55,7 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
         ${TARGET}
 
-        kwai-android-base
+        monitor_base
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})

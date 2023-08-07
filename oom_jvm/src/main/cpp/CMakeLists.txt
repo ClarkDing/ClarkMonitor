@@ -1,7 +1,7 @@
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 
-set(TARGET koom-strip-dump)
+set(TARGET jvm_dump)
 project(${TARGET})
 
 # Sets the minimum version of CMake required to build the native library.
@@ -10,19 +10,19 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_compile_options(-Wall -Wextra -Werror -Wno-unused-command-line-argument -Oz)
 
-set(THIRD_PARTY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../koom-common/third-party)
-set(KWAI_ANDROID_BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../koom-common/kwai-android-base)
+set(Xhook_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../xhook)
+set(BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../base)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include/
-        ${THIRD_PARTY_DIR}/xhook/src/main/cpp/xhook/src/
-        ${KWAI_ANDROID_BASE_DIR}/src/main/cpp/include/
-        ${KWAI_ANDROID_BASE_DIR}/src/main/cpp/liblog/include/
+        ${Xhook_DIR}/src/main/cpp/xhook/src/
+        ${BASE_DIR}/src/main/cpp/include/
+        ${BASE_DIR}/src/main/cpp/liblog/include/
 )
 
 link_directories(
-        ${KWAI_ANDROID_BASE_DIR}/src/main/libs/${ANDROID_ABI}/
-        ${THIRD_PARTY_DIR}/xhook/src/main/libs/${ANDROID_ABI}/
+        ${BASE_DIR}/src/main/libs/${ANDROID_ABI}/
+        ${Xhook_DIR}/src/main/libs/${ANDROID_ABI}/
 )
 
 # Creates and names a library, sets it as either STATIC
@@ -59,7 +59,7 @@ target_link_libraries( # Specifies the target library.
         ${TARGET}
 
         xhook_lib
-        kwai-android-base
+        monitor_base
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})

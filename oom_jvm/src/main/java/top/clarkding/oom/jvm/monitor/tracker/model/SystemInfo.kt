@@ -16,7 +16,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.tracker.model
+package top.clarkding.oom.jvm.monitor.tracker.model
 
 import android.os.Build
 import android.text.TextUtils

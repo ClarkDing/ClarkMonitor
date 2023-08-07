@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import java.io.File
 import java.io.FileInputStream

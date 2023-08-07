@@ -16,13 +16,11 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.tracker
+package top.clarkding.oom.jvm.monitor.tracker
 
 import com.kwai.koom.base.MonitorLog
-import com.kwai.koom.base.MonitorManager.getApplication
-import com.kwai.koom.base.currentActivity
-import com.kwai.koom.javaoom.monitor.OOMFileManager
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo
+import top.clarkding.oom.jvm.monitor.OOMFileManager
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo
 import java.io.File
 
 class ThreadOOMTracker : OOMTracker() {

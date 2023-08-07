@@ -16,18 +16,62 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+                cppFlags '-std=c++17', '-fno-exceptions', '-fno-rtti'
+            }
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
+            externalNativeBuild {
+                cmake {
+                    cppFlags '-Wl,--gc-sections', '-fvisibility=hidden', '-flto'
+                }
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    ndkVersion rootProject.ext.ndk_version
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+
+    flavorDimensions "stl_mode"
+    productFlavors {
+        StaticCpp {
+            dimension "stl_mode"
+            ext.artifactIdSuffix = 'static'
+            externalNativeBuild {
+                cmake {
+                    arguments = ["-DANDROID_STL=c++_static"]
+                }
+            }
+        }
+
+        SharedCpp {
+            dimension "stl_mode"
+            ext.artifactIdSuffix = ''
+            externalNativeBuild {
+                cmake {
+                    arguments = ["-DANDROID_STL=c++_shared"]
+                }
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -77,12 +121,12 @@ afterEvaluate {
         }
         publications {
             // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
+            releaseStatic(MavenPublication) {
+                from components.StaticCppRelease
 
                 groupId = properties.getProperty('PROJ_GROUP')
                 artifactId = PROJ_BASENAME
-                version = PROJ_VERSION
+                version = String.format("%s-STATIC", PROJ_VERSION)
 
                 pom {
                     name = PROJ_BASENAME
@@ -108,12 +152,75 @@ afterEvaluate {
                     }
                 }
             }
-            debug(MavenPublication) {
-                from components.debug
+            releaseShare(MavenPublication) {
+                from components.SharedCppRelease
 
                 groupId = properties.getProperty('PROJ_GROUP')
                 artifactId = PROJ_BASENAME
-                version = String.format("%s-SNAPSHOT", PROJ_VERSION)
+                version = String.format("%s-SHARED", PROJ_VERSION)
+
+                pom {
+                    name = PROJ_BASENAME
+                    description = properties.getProperty('PROJ_DESCRIPTION')
+                    url = properties.getProperty('PROJ_VCSURL')
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = properties.getProperty('DEVELOPER_ID')
+                            name = properties.getProperty('DEVELOPER_NAME')
+                            email = properties.getProperty('DEVELOPER_EMAIL')
+                        }
+                    }
+                    scm {
+                        connection = properties.getProperty('PROJ_WEBSITEURL')
+                        developerConnection = properties.getProperty('PROJ_VCSURL')
+                        url = properties.getProperty('PROJ_URL')
+                    }
+                }
+            }
+            debuStatic(MavenPublication) {
+                from components.StaticCppDebug
+
+                groupId = properties.getProperty('PROJ_GROUP')
+                artifactId = PROJ_BASENAME
+                version = String.format("%s-STATIC-SNAPSHOT", PROJ_VERSION)
+
+                pom {
+                    name = PROJ_BASENAME
+                    description = properties.getProperty('PROJ_DESCRIPTION')
+                    url = properties.getProperty('PROJ_WEBSITEURL')
+
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = properties.getProperty('DEVELOPER_ID')
+                            name = properties.getProperty('DEVELOPER_NAME')
+                            email = properties.getProperty('DEVELOPER_EMAIL')
+                        }
+                    }
+                    scm {
+                        connection = properties.getProperty('PROJ_WEBSITEURL')
+                        developerConnection = properties.getProperty('PROJ_VCSURL')
+                        url = properties.getProperty('PROJ_URL')
+                    }
+                }
+            }
+            debuShared(MavenPublication) {
+                from components.SharedCppDebug
+
+                groupId = properties.getProperty('PROJ_GROUP')
+                artifactId = PROJ_BASENAME
+                version = String.format("%s-SHARED-SNAPSHOT", PROJ_VERSION)
 
                 pom {
                     name = PROJ_BASENAME
@@ -143,7 +250,7 @@ afterEvaluate {
         }
 
         signing {
-            sign publishing.publications.release, publishing.publications.debug
+            sign publishing.publications.releaseStatic, publishing.publications.releaseShare, publishing.publications.debuStatic, publishing.publications.debuShared
         }
     }
 }

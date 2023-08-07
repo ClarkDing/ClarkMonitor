@@ -39,7 +39,6 @@ import kshark.OnAnalysisProgressListener.Step.INSPECTING_OBJECTS
 import kshark.OnAnalysisProgressListener.Step.PARSING_HEAP_DUMP
 import kshark.internal.AndroidNativeSizeMapper
 import kshark.internal.DominatorTree
-import kshark.internal.KeyedWeakReferenceMirror
 import kshark.internal.PathFinder
 import kshark.internal.PathFinder.PathFindingResults
 import kshark.internal.ReferencePathNode

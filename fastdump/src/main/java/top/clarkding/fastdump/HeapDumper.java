@@ -18,7 +18,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.fastdump;
+package top.clarkding.fastdump;
 
 public interface HeapDumper {
   /**

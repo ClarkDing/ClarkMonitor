@@ -16,12 +16,12 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor
+package top.clarkding.oom.jvm.monitor
 
 import android.os.Build
 import com.kwai.koom.base.MonitorBuildConfig
 import com.kwai.koom.base.MonitorConfig
-import com.kwai.koom.javaoom.monitor.utils.SizeUnit
+import top.clarkding.oom.jvm.monitor.utils.SizeUnit
 
 class OOMMonitorConfig(
     val analysisMaxTimesPerVersion: Int,

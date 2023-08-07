@@ -18,7 +18,7 @@
  */
 @file:Suppress("UNCHECKED_CAST")
 
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import java.lang.reflect.Field
 import java.lang.reflect.Method

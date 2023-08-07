@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 rootProject.name = "MobuMonitor"
 include ':app'
 include ':base'
+include ':oom_base'
+include ':oom_jvm'
+include ':fastdump'
+include ':shark'
+include ':xhook'

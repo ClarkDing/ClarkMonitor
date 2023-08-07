@@ -16,10 +16,10 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base.loop
+package top.clarkding.oom.base.loop
 
 import android.os.Handler
-import com.kwai.koom.base.Monitor
+import top.clarkding.oom.base.Monitor
 import java.util.concurrent.Callable
 
 abstract class LoopMonitor<C> : Monitor<C>(), Callable<LoopMonitor.LoopState> {

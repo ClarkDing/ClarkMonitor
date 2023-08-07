@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 abstract class MonitorConfig<M> {
   interface Builder<C: MonitorConfig<*>> {

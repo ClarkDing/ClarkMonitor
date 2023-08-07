@@ -4,14 +4,29 @@ buildscript {
     ext.min_version = 24
     ext.compile_version = 32
     ext.target_version = 31
+    ext.ndk_version = "23.1.7779620"
 
     ext.kot_core = "1.7.0"
     ext.app_compat = "1.5.1"
     ext.material = "1.9.0"
+    ext.lifecycle = "2.3.1"
+    ext.ok1 = "1.14.0"
 
     ext["signing.keyId"] = '92AA9FA1'
     ext["signing.password"] = 'Clark,2019'
     ext["signing.secretKeyRingFile"] = '../clarkding (clarkding)_0x92AA9FA1_SECRET.gpg'
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.6.0"
+    }
 
 }
 

@@ -2,7 +2,6 @@ package kshark
 
 import okio.Buffer
 import okio.BufferedSource
-import okio.Source
 import java.io.IOException
 
 class ByteArraySourceProvider(private val byteArray: ByteArray) : DualSourceProvider {

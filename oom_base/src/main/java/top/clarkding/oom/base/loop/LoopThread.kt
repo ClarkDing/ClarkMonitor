@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base.loop
+package top.clarkding.oom.base.loop
 
 import android.os.Handler
 import android.os.HandlerThread

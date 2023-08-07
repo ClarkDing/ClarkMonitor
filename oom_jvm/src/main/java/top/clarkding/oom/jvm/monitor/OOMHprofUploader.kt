@@ -16,7 +16,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor
+package top.clarkding.oom.jvm.monitor
 
 import java.io.File
 

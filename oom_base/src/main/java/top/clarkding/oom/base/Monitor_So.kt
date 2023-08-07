@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import android.os.Build
 import android.util.Log

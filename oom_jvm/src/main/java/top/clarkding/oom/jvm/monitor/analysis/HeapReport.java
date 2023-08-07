@@ -18,7 +18,7 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.analysis;
+package top.clarkding.oom.jvm.monitor.analysis;
 
 import java.util.ArrayList;
 import java.util.List;

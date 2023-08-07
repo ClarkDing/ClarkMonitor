@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import android.app.Activity
 import android.app.Application
@@ -25,7 +25,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.kwai.koom.base.MonitorManager.getApplication
+import top.clarkding.oom.base.MonitorManager.getApplication
 import java.lang.ref.WeakReference
 import java.util.concurrent.CopyOnWriteArrayList
 

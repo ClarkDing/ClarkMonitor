@@ -16,10 +16,10 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.tracker
+package top.clarkding.oom.jvm.monitor.tracker
 
 import com.kwai.koom.base.Monitor
-import com.kwai.koom.javaoom.monitor.OOMMonitorConfig
+import top.clarkding.oom.jvm.monitor.OOMMonitorConfig
 
 abstract class OOMTracker : Monitor<OOMMonitorConfig>() {
   /**

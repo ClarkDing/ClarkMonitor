@@ -16,13 +16,13 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import android.os.Process
-import com.kwai.koom.base.MonitorManager.getApplication
+import top.clarkding.oom.base.MonitorManager.getApplication
 import java.io.File
 
 enum class Abi {

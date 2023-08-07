@@ -3,7 +3,6 @@ package kshark
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ClassDumpRecord
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ClassDumpRecord.FieldRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ClassDumpRecord.StaticFieldRecord
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.InstanceDumpRecord
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ObjectArrayDumpRecord
 import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.PrimitiveArrayDumpRecord

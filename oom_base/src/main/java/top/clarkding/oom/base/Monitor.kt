@@ -16,7 +16,7 @@
  * @author KOOM Team
  *
  */
-package com.kwai.koom.base
+package top.clarkding.oom.base
 
 abstract class Monitor<C> {
   private var _commonConfig: CommonConfig? = null

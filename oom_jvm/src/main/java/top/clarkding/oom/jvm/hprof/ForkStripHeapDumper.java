@@ -16,12 +16,10 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.hprof;
+package top.clarkding.oom.jvm.hprof;
 
 import static com.kwai.koom.base.Monitor_ApplicationKt.sdkVersionMatch;
 import static com.kwai.koom.base.Monitor_SoKt.loadSoQuietly;
-
-import android.os.Build;
 
 import com.kwai.koom.base.MonitorLog;
 import com.kwai.koom.fastdump.ForkJvmHeapDumper;
@@ -36,7 +34,7 @@ public class ForkStripHeapDumper implements HeapDumper {
   }
 
   public static ForkStripHeapDumper getInstance() {
-    return ForkStripHeapDumper.Holder.INSTANCE;
+    return Holder.INSTANCE;
   }
 
   private ForkStripHeapDumper() {}

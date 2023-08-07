@@ -16,11 +16,11 @@
  * @author Rui Li <lirui05@kuaishou.com>
  */
 
-package com.kwai.koom.javaoom.monitor.tracker
+package top.clarkding.oom.jvm.monitor.tracker
 
 import com.kwai.koom.base.MonitorLog
-import com.kwai.koom.javaoom.monitor.tracker.model.SystemInfo
-import com.kwai.koom.javaoom.monitor.utils.SizeUnit
+import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo
+import top.clarkding.oom.jvm.monitor.utils.SizeUnit
 
 class FastHugeMemoryOOMTracker : OOMTracker() {
 

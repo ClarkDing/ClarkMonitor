@@ -1,4 +1,4 @@
-package com.kwai.koom.javaoom.monitor
+package top.clarkding.oom.jvm.monitor
 
 import java.io.File
 

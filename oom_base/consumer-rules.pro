@@ -1,0 +1,1 @@
+-keep class * extends top.clarkding.oom.base.Monitor { *; }

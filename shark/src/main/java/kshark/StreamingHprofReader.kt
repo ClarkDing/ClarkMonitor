@@ -1,19 +1,6 @@
 package kshark
 
 import okio.Source
-import kshark.HprofRecord.HeapDumpEndRecord
-import kshark.HprofRecord.HeapDumpRecord
-import kshark.HprofRecord.HeapDumpRecord.GcRootRecord
-import kshark.HprofRecord.HeapDumpRecord.HeapDumpInfoRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ClassDumpRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.InstanceDumpRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.ObjectArrayDumpRecord
-import kshark.HprofRecord.HeapDumpRecord.ObjectRecord.PrimitiveArrayDumpRecord
-import kshark.HprofRecord.LoadClassRecord
-import kshark.HprofRecord.StackFrameRecord
-import kshark.HprofRecord.StackTraceRecord
-import kshark.HprofRecord.StringRecord
 import kshark.HprofRecordTag.CLASS_DUMP
 import kshark.HprofRecordTag.HEAP_DUMP
 import kshark.HprofRecordTag.HEAP_DUMP_END
@@ -46,8 +33,6 @@ import kshark.HprofRecordTag.STRING_IN_UTF8
 import kshark.PrimitiveType.Companion.REFERENCE_HPROF_TYPE
 import kshark.PrimitiveType.INT
 import java.io.File
-import java.util.EnumSet
-import kotlin.reflect.KClass
 
 /**
  * Reads the entire content of a Hprof source in one fell swoop.

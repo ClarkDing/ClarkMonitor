@@ -3,7 +3,6 @@ package kshark
 import okio.Buffer
 import okio.BufferedSource
 import okio.Okio
-import okio.Source
 import java.io.File
 
 class FileSourceProvider(private val file: File) : DualSourceProvider {

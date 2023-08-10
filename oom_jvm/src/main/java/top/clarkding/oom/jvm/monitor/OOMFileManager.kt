@@ -19,7 +19,7 @@
 package top.clarkding.oom.jvm.monitor
 
 import android.os.StatFs
-import com.kwai.koom.base.MonitorBuildConfig
+import top.clarkding.oom.base.MonitorBuildConfig
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*

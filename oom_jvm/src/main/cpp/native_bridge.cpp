@@ -42,13 +42,13 @@ extern "C" {
  * JNI bridge for hprof crop
  */
 JNIEXPORT void JNICALL
-Java_com_kwai_koom_javaoom_hprof_ForkStripHeapDumper_initStripDump(
+Java_top_clarkding_oom_jvm_hprof_ForkStripHeapDumper_initStripDump(
     JNIEnv *env ATTRIBUTE_UNUSED, jobject jobject ATTRIBUTE_UNUSED) {
   HprofStrip::HookInit();
 }
 
 JNIEXPORT void JNICALL
-Java_com_kwai_koom_javaoom_hprof_ForkStripHeapDumper_hprofName(
+Java_top_clarkding_oom_jvm_hprof_ForkStripHeapDumper_hprofName(
     JNIEnv *env, jobject jobject ATTRIBUTE_UNUSED, jstring name) {
   const char *hprofName = env->GetStringUTFChars(name, nullptr);
   HprofStrip::GetInstance().SetHprofName(hprofName);

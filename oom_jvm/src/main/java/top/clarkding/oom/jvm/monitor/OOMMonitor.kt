@@ -22,10 +22,10 @@ import android.os.SystemClock
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import com.kwai.koom.base.*
-import com.kwai.koom.base.MonitorManager.getApplication
-import com.kwai.koom.base.loop.LoopMonitor
-import com.kwai.koom.fastdump.ForkJvmHeapDumper
+import top.clarkding.fastdump.ForkJvmHeapDumper
+import top.clarkding.oom.base.*
+import top.clarkding.oom.base.MonitorManager.getApplication
+import top.clarkding.oom.base.loop.LoopMonitor
 import top.clarkding.oom.jvm.monitor.OOMFileManager.hprofAnalysisDir
 import top.clarkding.oom.jvm.monitor.OOMFileManager.manualDumpDir
 import top.clarkding.oom.jvm.monitor.analysis.AnalysisExtraData

@@ -90,8 +90,11 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$app_compat"
     implementation "com.google.android.material:material:$material"
 
+    implementation "com.google.code.gson:gson:$gson"
+
     implementation project(path: ':oom_base')
     implementation project(path: ':fastdump')
+    implementation project(path: ':shark')
 }
 
 ext['PROJ_BASENAME'] = "ClarkOomJvm"

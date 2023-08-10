@@ -16,6 +16,15 @@ android {
         versionCode 1
         versionName "1.0.$versionCode"
 
+        externalNativeBuild {
+            cmake {
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+                arguments '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=c++_shared', '-DCMAKE_VERBOSE_MAKEFILE=ON'
+                cppFlags '-Wl,--gc-sections', '-fno-exceptions', '-fno-rtti', '-fvisibility=hidden', '-flto'
+                cFlags '-Wl,--gc-sections', '-fvisibility=hidden'
+            }
+        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,12 +34,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    externalNativeBuild {
+        cmake {
+            path 'src/main/jni/CMakeLists.txt'
+            version '3.18.1'
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+    flavorDimensions "stl_mode"
+    productFlavors {
+        StaticCpp.dimension = "stl_mode"
+        SharedCpp.dimension = "stl_mode"
+    }
+
+    packagingOptions {
+        pickFirst('lib/*/libc++_shared.so')
     }
 }
 
@@ -43,4 +76,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$kot_core"
     implementation "androidx.appcompat:appcompat:$app_compat"
     implementation "com.google.android.material:material:$material"
+
+    implementation project(path: ':oom_base')
+    implementation project(path: ':oom_jvm')
 }

@@ -18,7 +18,7 @@
 
 package top.clarkding.oom.jvm.monitor.tracker
 
-import com.kwai.koom.base.Monitor
+import top.clarkding.oom.base.Monitor
 import top.clarkding.oom.jvm.monitor.OOMMonitorConfig
 
 abstract class OOMTracker : Monitor<OOMMonitorConfig>() {

@@ -11,6 +11,7 @@ buildscript {
     ext.material = "1.9.0"
     ext.lifecycle = "2.3.1"
     ext.ok1 = "1.14.0"
+    ext.gson = "2.8.2"
 
     ext["signing.keyId"] = '92AA9FA1'
     ext["signing.password"] = 'Clark,2019'

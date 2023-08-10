@@ -18,12 +18,12 @@
 
 package top.clarkding.oom.jvm.hprof;
 
-import static com.kwai.koom.base.Monitor_ApplicationKt.sdkVersionMatch;
-import static com.kwai.koom.base.Monitor_SoKt.loadSoQuietly;
+import static top.clarkding.oom.base.Monitor_ApplicationKt.sdkVersionMatch;
+import static top.clarkding.oom.base.Monitor_SoKt.loadSoQuietly;
 
-import com.kwai.koom.base.MonitorLog;
-import com.kwai.koom.fastdump.ForkJvmHeapDumper;
-import com.kwai.koom.fastdump.HeapDumper;
+import top.clarkding.fastdump.HeapDumper;
+import top.clarkding.oom.base.MonitorLog;
+import top.clarkding.fastdump.ForkJvmHeapDumper;
 
 public class ForkStripHeapDumper implements HeapDumper {
   private static final String TAG = "OOMMonitor_ForkStripHeapDumper";

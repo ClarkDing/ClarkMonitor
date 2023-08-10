@@ -19,8 +19,8 @@
 package top.clarkding.oom.jvm.monitor
 
 import android.content.SharedPreferences
-import com.kwai.koom.base.MonitorBuildConfig
-import com.kwai.koom.base.allKeys
+import top.clarkding.oom.base.MonitorBuildConfig
+import top.clarkding.oom.base.allKeys
 
 internal object OOMPreferenceManager {
   private const val PREFERENCE_NAME = "koom_hprof_analysis"

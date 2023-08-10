@@ -20,7 +20,7 @@ package top.clarkding.oom.jvm.monitor.tracker.model
 
 import android.os.Build
 import android.text.TextUtils
-import com.kwai.koom.base.MonitorLog
+import top.clarkding.oom.base.MonitorLog
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream

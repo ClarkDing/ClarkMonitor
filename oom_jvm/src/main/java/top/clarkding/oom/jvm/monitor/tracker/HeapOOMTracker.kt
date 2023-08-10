@@ -18,7 +18,7 @@
 
 package top.clarkding.oom.jvm.monitor.tracker
 
-import com.kwai.koom.base.MonitorLog
+import top.clarkding.oom.base.MonitorLog
 import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo
 import top.clarkding.oom.jvm.monitor.utils.SizeUnit
 

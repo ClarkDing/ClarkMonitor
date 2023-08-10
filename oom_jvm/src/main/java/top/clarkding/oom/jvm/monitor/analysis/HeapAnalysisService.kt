@@ -28,6 +28,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.Debug
 import android.os.ResultReceiver
+import com.google.gson.Gson
+import kshark.*
+import kshark.HprofHeapGraph.Companion.openHeapGraph
 
 import java.io.File
 import java.io.IOException
@@ -36,9 +39,7 @@ import java.util.*
 
 import kotlin.system.measureTimeMillis
 
-import com.google.gson.Gson
-
-import com.kwai.koom.base.MonitorLog
+import top.clarkding.oom.base.MonitorLog
 
 import top.clarkding.oom.jvm.monitor.OOMFileManager
 import top.clarkding.oom.jvm.monitor.OOMFileManager.createDumpFile
@@ -49,15 +50,6 @@ import top.clarkding.oom.jvm.monitor.utils.SizeUnit.KB
 import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.javaHeap
 import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.memInfo
 import top.clarkding.oom.jvm.monitor.tracker.model.SystemInfo.procStatus
-
-import kshark.AndroidReferenceMatchers
-import kshark.HeapAnalyzer
-import kshark.HeapAnalyzer.FindLeakInput
-import kshark.HeapGraph
-import kshark.HprofHeapGraph.Companion.openHeapGraph
-import kshark.HprofRecordTag
-import kshark.OnAnalysisProgressListener
-import kshark.SharkLog
 
 class HeapAnalysisService : IntentService("HeapAnalysisService") {
   companion object {
@@ -245,7 +237,8 @@ class HeapAnalysisService : IntentService("HeapAnalysisService") {
 
     measureTimeMillis {
       mHeapGraph = File(hprofFile).openHeapGraph(null,
-          setOf(HprofRecordTag.ROOT_JNI_GLOBAL,
+          setOf(
+            HprofRecordTag.ROOT_JNI_GLOBAL,
               HprofRecordTag.ROOT_JNI_LOCAL,
               HprofRecordTag.ROOT_NATIVE_STACK,
               HprofRecordTag.ROOT_STICKY_CLASS,
@@ -506,8 +499,10 @@ class HeapAnalysisService : IntentService("HeapAnalysisService") {
         }
     )
 
-    val findLeakInput = FindLeakInput(mHeapGraph, AndroidReferenceMatchers.appDefaults,
-        false, mutableListOf())
+    val findLeakInput = HeapAnalyzer.FindLeakInput(
+      mHeapGraph, AndroidReferenceMatchers.appDefaults,
+      false, mutableListOf()
+    )
 
     val (applicationLeaks, libraryLeaks) = with(heapAnalyzer) {
       findLeakInput.findLeaks(mLeakingObjectIds)

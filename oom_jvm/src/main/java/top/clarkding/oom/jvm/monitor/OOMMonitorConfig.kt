@@ -19,8 +19,8 @@
 package top.clarkding.oom.jvm.monitor
 
 import android.os.Build
-import com.kwai.koom.base.MonitorBuildConfig
-import com.kwai.koom.base.MonitorConfig
+import top.clarkding.oom.base.MonitorBuildConfig
+import top.clarkding.oom.base.MonitorConfig
 import top.clarkding.oom.jvm.monitor.utils.SizeUnit
 
 class OOMMonitorConfig(
